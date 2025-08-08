@@ -7806,11 +7806,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\C#\\TaskManagementApp\\TaskManagementApp\\TaskManagementApp.csproj",
+      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\C#\\OritsoAssignment\\TaskManagementApp\\TaskManagementApp.csproj",
       "projectName": "TaskManagementApp",
-      "projectPath": "C:\\Users\\Hp\\Desktop\\C#\\TaskManagementApp\\TaskManagementApp\\TaskManagementApp.csproj",
+      "projectPath": "C:\\Users\\Hp\\Desktop\\C#\\OritsoAssignment\\TaskManagementApp\\TaskManagementApp.csproj",
       "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hp\\Desktop\\C#\\TaskManagementApp\\TaskManagementApp\\obj\\",
+      "outputPath": "C:\\Users\\Hp\\Desktop\\C#\\OritsoAssignment\\TaskManagementApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
