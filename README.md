@@ -29,6 +29,10 @@ docs/er-diagram(1).png
 | CreatedById      | string      | User who created the task          |
 | CreatedByName    | string      | Name of creator                    |
 | UpdatedById      | string      | User who last updated the task     | | UpdatedByName    | string      | Name of last updater               |
+## ■ Indexing
+Indexes implemented for faster search & filtering:
+- **Clustered Index:** `Id` (Primary Key)
+- **Non-Clustered Index:** `Title`, `status`
 
 ■■ Features Implemented
 ------------------------
@@ -44,13 +48,15 @@ docs/er-diagram(1).png
 -	Model: TaskModel, ApplicationUser
 -	View: Razor Pages using Bootstrap- Controller: TaskController handles all CRUD operations
 ■ Setup Instructions
---------------------1. Clone the repo:    git clone https://github.com/yourusername/TaskManagementApp.git 2. Update your SQL connection string in appsettings.json
+--------------------1. Clone the repo:    git clone https://github.com/alka-singh1404/TaskManagementApp.git 2. Update your SQL connection string in appsettings.json
 3.	Apply migrations:
    dotnet ef database update
 4.	Run the application:    dotnet run
-■ Code First Approach
+
+1. ■ Code First Approach
 -----------------------
 Code First approach has been used because it allows better control over model cla sses and easier versioning of database using EF Core migrations.
+
 ## ⚙ Build & Install
 
 ### **Dependencies**
@@ -73,10 +79,11 @@ Code First approach has been used because it allows better control over model cl
   - Responsive form layouts
   - Bootstrap table for listing tasks
   - Validation messages
+
 ### **Steps to Build & Run**
-1. Repo clone:
-   ```bash
-   git clone https://github.com/<username>/TaskManagementApp.git
+1.clone the repo:
+ git clone https://github.com/alka-singh1404/TaskManagementApp.git
+
 2.Go to Project folder :
 cd TaskManagementApp
 
