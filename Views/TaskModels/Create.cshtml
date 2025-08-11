@@ -8,71 +8,105 @@
 
 <h4>TaskModel</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<h2 class="text-center mt-4 text-primary fw-bold">Create New Task</h2>
+
+<div class="card shadow-lg border-0 mt-4">
+    <div class="card-header bg-gradient bg-success text-white">
+        <h4 class="mb-0">Task Information</h4>
+    </div>
+    <div class="card-body p-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Title" class="form-label fw-bold"></label>
+                    <input asp-for="Title" class="form-control shadow-sm" placeholder="Enter task title" />
+                    <span asp-validation-for="Title" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Description" class="form-label fw-bold"></label>
+                    <input asp-for="Description" class="form-control shadow-sm" placeholder="Enter description" />
+                    <span asp-validation-for="Description" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="DueDate" class="form-label fw-bold"></label>
+                    <input asp-for="DueDate" type="date" class="form-control shadow-sm" />
+                    <span asp-validation-for="DueDate" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="status" class="form-label fw-bold"></label>
+                    <select asp-for="status" class="form-select shadow-sm">
+                        <option value="">-- Select Status --</option>
+                        <option>Pending</option>
+                        <option>In Progress</option>
+                        <option>Completed</option>
+                    </select>
+                    <span asp-validation-for="status" class="text-danger small"></span>
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="Remarks" class="form-label fw-bold"></label>
+                    <textarea asp-for="Remarks" class="form-control shadow-sm" rows="2" placeholder="Enter remarks"></textarea>
+                    <span asp-validation-for="Remarks" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="CreatedByName" class="form-label fw-bold"></label>
+                    <input asp-for="CreatedByName" class="form-control shadow-sm" placeholder="Enter creator name" />
+                    <span asp-validation-for="CreatedByName" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="CreatedById" class="form-label fw-bold"></label>
+                    <input asp-for="CreatedById" class="form-control shadow-sm" placeholder="Enter creator ID" />
+                    <span asp-validation-for="CreatedById" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="UpdatedByName" class="form-label fw-bold"></label>
+                    <input asp-for="UpdatedByName" class="form-control shadow-sm" placeholder="Enter updater name" />
+                    <span asp-validation-for="UpdatedByName" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="UpdatedById" class="form-label fw-bold"></label>
+                    <input asp-for="UpdatedById" class="form-control shadow-sm" placeholder="Enter updater ID" />
+                    <span asp-validation-for="UpdatedById" class="text-danger small"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DueDate" class="control-label"></label>
-                <input asp-for="DueDate" class="form-control" />
-                <span asp-validation-for="DueDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="status" class="control-label"></label>
-                <input asp-for="status" class="form-control" />
-                <span asp-validation-for="status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Remarks" class="control-label"></label>
-                <input asp-for="Remarks" class="form-control" />
-                <span asp-validation-for="Remarks" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedOn" class="control-label"></label>
-                <input asp-for="CreatedOn" class="form-control" />
-                <span asp-validation-for="CreatedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedOn" class="control-label"></label>
-                <input asp-for="UpdatedOn" class="form-control" />
-                <span asp-validation-for="UpdatedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedByName" class="control-label"></label>
-                <input asp-for="CreatedByName" class="form-control" />
-                <span asp-validation-for="CreatedByName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedById" class="control-label"></label>
-                <input asp-for="CreatedById" class="form-control" />
-                <span asp-validation-for="CreatedById" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedByName" class="control-label"></label>
-                <input asp-for="UpdatedByName" class="form-control" />
-                <span asp-validation-for="UpdatedByName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedById" class="control-label"></label>
-                <input asp-for="UpdatedById" class="form-control" />
-                <span asp-validation-for="UpdatedById" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="mt-4 text-end">
+                <a asp-action="Index" class="btn btn-secondary me-2 shadow-sm">Cancel</a>
+                <button type="submit" class="btn btn-primary shadow-sm px-4">Create Task</button>
             </div>
         </form>
     </div>
 </div>
+
+<style>
+    .card-header {
+        background: linear-gradient(45deg, #28a745, #218838);
+    }
+
+    .form-label {
+        color: #495057;
+    }
+
+    input, textarea, select {
+        border-radius: 8px !important;
+    }
+
+    button, .btn {
+        border-radius: 8px;
+        font-weight: 500;
+    }
+</style>
+
+
 
 <div>
     <a asp-action="Index">Back to List</a>

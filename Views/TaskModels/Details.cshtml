@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+@* <h1>Details</h1>
 
 <div>
     <h4>TaskModel</h4>
@@ -81,4 +81,104 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+ *@
+
+
+
+
+<h2 class="text-center mt-4">Task Details</h2>
+
+<div class="card shadow-lg mt-4">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Task Information</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped table-info">
+            <tbody>
+                <tr>
+                    <th>Title</th>
+                    <td>@Model.Title</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>@Model.Description</td>
+                </tr>
+                <tr>
+                    <th>Due Date</th>
+                    <td>@Model.DueDate.ToString("dd-MMM-yyyy")</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>@Model.status</td>
+                </tr>
+                <tr>
+                    <th>Remarks</th>
+                    <td>@Model.Remarks</td>
+                </tr>
+                <tr>
+                    <th>Created On</th>
+                    <td>@Model.CreatedOn.ToString("dd-MMM-yyyy hh:mm tt")</td>
+                </tr>
+                <tr>
+                    <th>Updated On</th>
+                    <td>@Model.UpdatedOn.ToString("dd-MMM-yyyy hh:mm tt")</td>
+                </tr>
+                <tr>
+                    <th>Created By Name</th>
+                    <td>@Model.CreatedByName</td>
+                </tr>
+                <tr>
+                    <th>Created By ID</th>
+                    <td>@Model.CreatedById</td>
+                </tr>
+                <tr>
+                    <th>Updated By Name</th>
+                    <td>@Model.UpdatedByName</td>
+                </tr>
+                <tr>
+                    <th>Updated By ID</th>
+                    <td>@Model.UpdatedById</td>
+                </tr>
+            </tbody>
+        </table>
+       @*  <dl class="row">
+            <dt class="col-sm-3">Title</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+
+            <dt class="col-sm-3">Due Date</dt>
+            <dd class="col-sm-9">@Model.DueDate.ToString("dd-MMM-yyyy")</dd>
+
+            <dt class="col-sm-3">Status</dt>
+            <dd class="col-sm-9">@Model.status</dd>
+
+            <dt class="col-sm-3">Remarks</dt>
+            <dd class="col-sm-9">@Model.Remarks</dd>
+
+            <dt class="col-sm-3">Created On</dt>
+            <dd class="col-sm-9">@Model.CreatedOn.ToString("dd-MMM-yyyy hh:mm tt")</dd>
+
+            <dt class="col-sm-3">Updated On</dt>
+            <dd class="col-sm-9">@Model.UpdatedOn.ToString("dd-MMM-yyyy hh:mm tt")</dd>
+
+            <dt class="col-sm-3">Created By Name</dt>
+            <dd class="col-sm-9">@Model.CreatedByName</dd>
+
+            <dt class="col-sm-3">Created By ID</dt>
+            <dd class="col-sm-9">@Model.CreatedById</dd>
+
+            <dt class="col-sm-3">Updated By Name</dt>
+            <dd class="col-sm-9">@Model.UpdatedByName</dd>
+
+            <dt class="col-sm-3">Updated By ID</dt>
+            <dd class="col-sm-9">@Model.UpdatedById</dd>
+        </dl> *@
+    </div>
+    <div class="card-footer text-end">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
 </div>

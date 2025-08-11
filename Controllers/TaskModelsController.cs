@@ -60,14 +60,23 @@ namespace TaskManagementApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,DueDate,status,Remarks,CreatedOn,UpdatedOn,CreatedByName,CreatedById,UpdatedByName,UpdatedById")] TaskModel taskModel)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,DueDate,status,Remarks,CreatedByName,CreatedById,UpdatedByName,UpdatedById")] TaskModel taskModel)
         {
             if (ModelState.IsValid)
             {
+                taskModel.CreatedOn = DateTime.Now;
+                taskModel.UpdatedOn = DateTime.Now;
+
                 _context.Add(taskModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(taskModel);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
             return View(taskModel);
         }
 
@@ -88,11 +97,10 @@ namespace TaskManagementApp.Controllers
         }
 
         // POST: TaskModels/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DueDate,status,Remarks,CreatedOn,UpdatedOn,CreatedByName,CreatedById,UpdatedByName,UpdatedById")] TaskModel taskModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DueDate,status,Remarks,CreatedByName,CreatedById,UpdatedByName,UpdatedById")] TaskModel taskModel)
         {
             if (id != taskModel.Id)
             {
@@ -103,8 +111,25 @@ namespace TaskManagementApp.Controllers
             {
                 try
                 {
-                    _context.Update(taskModel);
-                    await _context.SaveChangesAsync();
+                    var existingTask = await _context.Tasks.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
+                    if (existingTask == null)
+                    {
+                        return NotFound();
+                    }
+
+                    // Compare if data has actually changed
+                    if (!AreTasksEqual(existingTask, taskModel))
+                    {
+                        taskModel.CreatedOn = existingTask.CreatedOn; // keep old created date
+                        taskModel.UpdatedOn = DateTime.Now; // update only if changes found
+                        _context.Update(taskModel);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        // Optional: Add message to show user "No changes were made"
+                        TempData["Message"] = "No changes detected.";
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,6 +146,57 @@ namespace TaskManagementApp.Controllers
             }
             return View(taskModel);
         }
+
+        // Helper method to check if any field has changed
+        private bool AreTasksEqual(TaskModel oldTask, TaskModel newTask)
+        {
+            return oldTask.Title == newTask.Title &&
+                   oldTask.Description == newTask.Description &&
+                   oldTask.DueDate == newTask.DueDate &&
+                   oldTask.status == newTask.status &&
+                   oldTask.Remarks == newTask.Remarks &&
+                   oldTask.CreatedByName == newTask.CreatedByName &&
+                   oldTask.CreatedById == newTask.CreatedById &&
+                   oldTask.UpdatedByName == newTask.UpdatedByName &&
+                   oldTask.UpdatedById == newTask.UpdatedById;
+        }
+
+        //public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DueDate,status,Remarks,CreatedByName,CreatedById,UpdatedByName,UpdatedById")] TaskModel taskModel)
+        //{
+        //    if (id != taskModel.Id)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            var existingTask = await _context.Tasks.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
+        //            if (existingTask == null)
+        //            {
+        //                return NotFound();
+        //            }
+        //            taskModel.CreatedOn = existingTask.CreatedOn;
+        //            taskModel.UpdatedOn = DateTime.Now; // ✅ only update this
+        //            _context.Update(taskModel);
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!TaskModelExists(taskModel.Id))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(taskModel);
+        //}
 
         // GET: TaskModels/Delete/5
         public async Task<IActionResult> Delete(int? id)

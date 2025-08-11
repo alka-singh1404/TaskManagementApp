@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace TaskManagementApp.Models
 {
+    [Index(nameof(Title))]
+    [Index(nameof(status))]
     public class TaskModel
     {
         [Key]

@@ -570,10 +570,10 @@ C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\stati
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TaskManagementApp.props
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TaskManagementApp.props
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\TaskMana.85ED985A.Up2Date
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\TaskManagementApp.dll
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\refint\TaskManagementApp.dll
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\TaskManagementApp.pdb
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\TaskManagementApp.genruntimeconfig.cache
 C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\ref\TaskManagementApp.dll
+C:\Users\Hp\Desktop\C#\OritsoAssignment\TaskManagementApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
