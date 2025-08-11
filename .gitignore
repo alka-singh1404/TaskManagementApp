@@ -1,0 +1,44 @@
+# Visual Studio
+.vs/
+.vscode/
+
+# Build folders
+bin/
+obj/
+[Bb]uild/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Entity Framework / Local DB
+*.mdf
+*.ldf
+*.db
+
+# Logs, temp files
+*.log
+*.tmp
+*.cache
+
+# Certificates, secrets
+*.pfx
+secrets.json
+*.key
+
+# Rider / IDE
+.idea/
+
+# Others
+*.dbmdl
+*.jfm
+*.suo
+*.DotSettings.user
+*.publishsettings
