@@ -14,20 +14,7 @@ This is a simple Task Management System built using ASP.NET Core MVC and SQL Ser
 
 ■ ER Diagram
 --------------
-Task
------
-TaskId (PK)
-TaskTitle
-TaskDescription
-TaskDueDate
-TaskStatus
-TaskRemarks
-CreatedOn
-LastUpdatedOn
-CreatedById
-CreatedByName
-UpdatedById
-UpdatedByName
+docs/er-diagram(1).png
 
 ■■ Data Dictionary
 -------------------
@@ -64,6 +51,44 @@ UpdatedByName
 ■ Code First Approach
 -----------------------
 Code First approach has been used because it allows better control over model cla sses and easier versioning of database using EF Core migrations.
+## ⚙ Build & Install
+
+### **Dependencies**
+- .NET 8 SDK
+- SQL Server
+- Entity Framework Core Tools
+
+## 🏗 Application Structure
+
+- **Architecture:** MVC (Model-View-Controller)
+- **Backend:** ASP.NET Core MVC + Entity Framework Core (SQL Server)
+- **Frontend:** Razor Views + Bootstrap 5 for styling
+- **Pattern Used:** Server-side rendering (MPA - Multi Page Application)
+- 
+## 🎨 Frontend
+
+- **Technology Used:** HTML5, CSS3, Bootstrap 5
+- **Reason:** Bootstrap provide fast responsive design  without heavy custom CSS 
+- **Features:**
+  - Responsive form layouts
+  - Bootstrap table for listing tasks
+  - Validation messages
+### **Steps to Build & Run**
+1. Repo clone:
+   ```bash
+   git clone https://github.com/<username>/TaskManagementApp.git
+2.Go to Project folder :
+cd TaskManagementApp
+
+3.Database migrate :
+dotnet ef database update
+
+4.Project run:
+dotnet run
+
+Open in Browser:
+https://localhost:7001
+
 ■ Author
 ----------
 Your Name

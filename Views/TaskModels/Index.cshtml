@@ -11,8 +11,79 @@
     <a asp-action="Create">Create New</a>
 </p>
 </div>
-
 <form asp-action="Index" method="get" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="searchString"
+               value="@ViewContext.HttpContext.Request.Query["searchString"]"
+               class="form-control rounded-start"
+               placeholder="🔍 Search by Title or Status" />
+        <button type="submit" class="btn btn-primary">
+            Search
+        </button>
+    </div>
+</form>
+
+<table class="table table-hover table-bordered align-middle mb-0">
+    <thead class="bg-light text-center fw-bold">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.DueDate)</th>
+            <th>@Html.DisplayNameFor(model => model.status)</th>
+            <th>@Html.DisplayNameFor(model => model.Remarks)</th>
+            <th>@Html.DisplayNameFor(model => model.CreatedOn)</th>
+            <th>@Html.DisplayNameFor(model => model.UpdatedOn)</th>
+            <th>@Html.DisplayNameFor(model => model.CreatedByName)</th>
+            <th>@Html.DisplayNameFor(model => model.CreatedById)</th>
+            <th>@Html.DisplayNameFor(model => model.UpdatedByName)</th>
+            <th>@Html.DisplayNameFor(model => model.UpdatedById)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.DueDate)</td>
+                <td>
+                    <span class="badge bg-@(item.status == "Completed" ? "success" : item.status == "Pending" ? "warning" : "secondary")">
+                        @Html.DisplayFor(modelItem => item.status)
+                    </span>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Remarks)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedOn)</td>
+                <td>@Html.DisplayFor(modelItem => item.UpdatedOn)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedByName)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedById)</td>
+                <td>@Html.DisplayFor(modelItem => item.UpdatedByName)</td>
+                <td>@Html.DisplayFor(modelItem => item.UpdatedById)</td>
+                <td class="text-center">
+                    <div class="btn-group" role="group">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary px-3">✏ Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-success px-3">📄 Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger px-3">🗑 Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    /* Hide scrollbars */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+</style>
+
+@* <form asp-action="Index" method="get" class="mb-4">
     <p>
         <input type="text" name="searchString" value="@ViewContext.HttpContext.Request.Query["searchString"]" placeholder="Search by Title/status" />
         <input type="submit" value="Search" class="btn btn-primary" />
@@ -103,3 +174,4 @@
 }
     </tbody>
 </table>
+ *@
