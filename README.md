@@ -43,16 +43,6 @@ Indexes implemented for faster search & filtering:
 -	■ Search by Task Title
 -	■ Indexing on frequently filtered columns
 
-■■ Architecture
----------------MVC Pattern:
--	Model: TaskModel, ApplicationUser
--	View: Razor Pages using Bootstrap- Controller: TaskController handles all CRUD operations
-■ Setup Instructions
---------------------1. Clone the repo:    git clone https://github.com/alka-singh1404/TaskManagementApp.git 2. Update your SQL connection string in appsettings.json
-3.	Apply migrations:
-   dotnet ef database update
-4.	Run the application:    dotnet run
-
 1. ■ Code First Approach
 -----------------------
 Code First approach has been used because it allows better control over model cla sses and easier versioning of database using EF Core migrations.
