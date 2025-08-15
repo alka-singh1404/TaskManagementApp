@@ -14,7 +14,9 @@ This is a simple Task Management System built using ASP.NET Core MVC and SQL Ser
 
 ■ ER Diagram
 --------------
-docs/er-diagram(1).png
+
+[![ER Diagram](./docs/er-diagram.png)](./docs/er-diagram.png)
+
 
 ■■ Data Dictionary
 -------------------
